@@ -22,4 +22,16 @@ router.post('/', async (req, res) => {
   }
 });
 
+// GET /api/contact
+router.get('/', async (req, res) => {
+  try {
+    const contacts = await Contact.find().sort({ createdAt: -1 });
+    res.json(contacts);
+  } catch (err) {
+    console.error('[Contact GET]', err);
+    res.status(500).json({ error: 'Server error while fetching contacts.' });
+  }
+});
+
+
 module.exports = router;
