@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const contactRoutes = require('./routes/contact');
+const adminRoutes = require('./routes/admin');
 
 require('dotenv').config();
 
@@ -15,6 +16,7 @@ app.use(express.json()); // Parse JSON bodies
 
 // Routes
 app.use('/api/contact', contactRoutes);
+app.use('/api/admin', adminRoutes);
 
 // MongoDB Connection
 const PORT = process.env.PORT || 5000;
